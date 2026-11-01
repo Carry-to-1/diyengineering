@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIY Engineering - Open Engineering & Computer Science Curriculum</title>
+  <meta name="description" content="A curated self-study engineering and computer science curriculum modeled after the CS-DIY Wiki methodology. Top English courses from MIT OCW, CMU, Stanford, UC Berkeley, Georgia Tech, OST2, pwn.college, and NPTEL.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">Menu</button>
+      <a href="#welcome" class="brand-title">
+        DIY Engineering
+        <span class="brand-badge">Wiki</span>
+      </a>
+    </div>
+
+    <div class="topbar-center">
+      <div class="search-box-wrapper">
+        <input 
+          type="text" 
+          id="global-search-input" 
+          class="search-input" 
+          placeholder="Search courses, topics, codes, institutions..." 
+          autocomplete="off" 
+          spellcheck="false"
+        >
+        <span class="search-shortcut-hint">/</span>
+      </div>
+
+      <select id="institution-select" class="institution-filter-select" aria-label="Filter courses by institution">
+        <!-- Populated dynamically via JS -->
+      </select>
+    </div>
+
+    <div class="topbar-right">
+      <button id="saved-courses-btn" class="btn-classic" title="View your saved study plan">
+        <span>Study Plan</span>
+        <span id="saved-count-badge" class="nav-item-count">0</span>
+      </button>
+
+      <button id="theme-toggle-btn" class="btn-classic" title="Toggle dark or light color theme">
+        <span>Theme:</span>
+        <span id="theme-toggle-text">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 3-Column Application Layout -->
+  <div class="app-container">
+
+    <!-- Column 1: Main Discipline Navigation (Leftmost) -->
+    <aside class="col-primary-nav" aria-label="Discipline navigation">
+      <div class="nav-section-title">Disciplines</div>
+      <ul id="primary-nav-list" class="nav-item-list">
+        <!-- Populated dynamically from DISCIPLINES -->
+      </ul>
+
+      <div class="col1-footer">
+        <div style="font-weight: 600; margin-bottom: 4px; color: var(--text-secondary);">Open Curriculum Guide</div>
+        <div>Free educational resources from MIT, CMU, Stanford, Berkeley, Georgia Tech, OST2, pwn.college &amp; NPTEL.</div>
+      </div>
+    </aside>
+
+    <!-- Column 2: Sub-Menu / Topics & Course List -->
+    <aside class="col-submenu-nav" aria-label="Course list navigation">
+      <div class="submenu-header">
+        <div class="submenu-title-row">
+          <span id="submenu-heading" class="submenu-heading">Courses</span>
+          <span id="submenu-count" class="submenu-count">0 courses</span>
+        </div>
+        <input 
+          type="text" 
+          id="submenu-filter-input" 
+          class="submenu-filter-input" 
+          placeholder="Filter in discipline..." 
+          autocomplete="off"
+        >
+      </div>
+
+      <div id="submenu-container" class="submenu-scroll-area">
+        <!-- Grouped topic lists rendered by JS -->
+      </div>
+    </aside>
+
+    <!-- Column 3: Main Course / Content Display (CS-DIY Technique) -->
+    <main class="col-main-content" id="main-content-container" tabindex="-1">
+      <!-- Welcome page or Course detail document rendered by JS -->
+    </main>
+
+  </div>
+
+  <!-- Saved Study Plan Modal -->
+  <div id="saved-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <span id="modal-title">My Study Plan &amp; Bookmarked Courses</span>
+        <button id="close-modal-btn" class="btn-classic">&times; Close</button>
+      </div>
+      <div id="modal-saved-list" class="modal-body">
+        <!-- Populated dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button onclick="document.getElementById('saved-modal').classList.remove('open')" class="btn-classic">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/courses.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
